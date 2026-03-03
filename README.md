@@ -1,0 +1,33 @@
+# Adaptive Presence Light (ESP32)
+
+Proximity and motion-aware RGB strip controller for ESP32 with:
+
+- HC-SR04 distance measurement + EMA smoothing (optional Kalman)
+- PIR-triggered occupancy state machine (ACTIVE/IDLE/SLEEP)
+- Linear distance-to-color interpolation (red near, blue far)
+- 60 FPS fade engine with optional gamma correction
+- LDR-driven adaptive brightness
+- FreeRTOS task separation (`sensor_task`, `lighting_task`, `wifi_task`, `power_task`)
+- Optional WiFi dashboard for telemetry and manual override
+
+## Files
+
+- `config.h`: pin mapping, timing, thresholds, and feature toggles.
+- `sensor.*`: ultrasonic + PIR + LDR acquisition and filtering.
+- `lighting.*`: color mapping, fade interpolation, and PWM output.
+- `state_machine.*`: ACTIVE/IDLE/SLEEP transitions.
+- `power.*`: sleep mode hooks.
+- `wifi.*`: ESP32 web server endpoints.
+- `main.ino`: startup and RTOS task orchestration.
+
+## Dashboard endpoints
+
+- `/` status page (distance/state/mode)
+- `/auto?enabled=1|0`
+- `/color?r=255&g=64&b=0`
+
+## Notes
+
+- Add a voltage divider on `ECHO` (5V -> 3.3V).
+- Replace WiFi placeholders in `wifi.cpp` (`kSsid`, `kPass`).
+- `IRFZ44N` may require gate driver for full enhancement at 3.3V logic depending on strip current.
