@@ -41,3 +41,21 @@ A starter workflow is included at `.github/workflows/github-actions-demo.yml`.
 - Purpose: validate Actions setup and show basic workflow step output
 
 You can view results in the repository **Actions** tab after pushing commits.
+
+## Auto-download + IDE-ready structuring
+
+Use `github_to_arduino.py` to clone a GitHub project and prepare a clean Arduino IDE sketch folder automatically.
+
+Example:
+
+```bash
+python github_to_arduino.py https://github.com/your-user/your-esp32-project.git --ref main --project-name AdaptivePresenceLight --output-dir downloads
+```
+
+What it does:
+
+- clones the repo (shallow)
+- finds a primary `.ino` (`<repo>.ino`, `main.ino`, or first discovered)
+- copies only the sketch folder contents into `downloads/<project-name>`
+- renames the main sketch file to `<project-name>.ino` for Arduino IDE compatibility
+- writes `UPLOAD_NOTES.md` with upload steps
