@@ -31,3 +31,13 @@ Proximity and motion-aware RGB strip controller for ESP32 with:
 - Add a voltage divider on `ECHO` (5V -> 3.3V).
 - Replace WiFi placeholders in `wifi.cpp` (`kSsid`, `kPass`).
 - `IRFZ44N` may require gate driver for full enhancement at 3.3V logic depending on strip current.
+
+## GitHub Actions quickstart
+
+A starter workflow is included at `.github/workflows/github-actions-demo.yml`.
+
+- Trigger: every `push`
+- Job: `Explore-GitHub-Actions` on `ubuntu-latest`
+- Purpose: validate Actions setup and show basic workflow step output
+
+You can view results in the repository **Actions** tab after pushing commits.
