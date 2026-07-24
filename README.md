@@ -22,3 +22,11 @@ The shared `chatgpt.com` link cannot be fetched from this environment (HTTP 403)
 
 ## Next step
 Paste the exact code from your ChatGPT shared link into the marked `YOUR FEATURE START/END` section, then upload again.
+
+
+## PPE website concept
+This repository now includes a static marketing website concept for PPE product sales and digital presence. Open `index.html` in a browser to review the landing page, product category sections, industry positioning, and quote enquiry form.
+
+## Website files
+- `index.html` — responsive PPE sales landing page.
+- `styles.css` — visual design, layout, and responsive styles for the website.
